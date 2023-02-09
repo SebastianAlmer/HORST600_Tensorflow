@@ -9,15 +9,19 @@
 #git clone https://gitlab.com/digitalisierungszentrum/showcase-ki.git
 
 #Software installieren
-sudo apt-get -y install python3-dev python3-pip python3-venv python3-picamera git libatlas-base-dev libopenjp2-7-dev
-sudo apt-get -y install -y libatlas-base-dev libhdf5-dev libc-ares-dev libeigen3-dev build-essential libsdl-ttf2.0-0 python-pygame festival python3-h5py
+#sudo apt-get -y install python3-dev python3-pip python3-venv python3-picamera git libatlas-base-dev libopenjp2-7-dev
+sudo apt-get -y install git libatlas-base-dev
+#sudo apt-get -y install -y libatlas-base-dev libhdf5-dev libc-ares-dev libeigen3-dev build-essential libsdl-ttf2.0-0 python-pygame festival python3-h5py
 
 
 #pip updaten
-pip3 install --upgrade pip
+pip install --upgrade pip
 
 #Python libraries installieren
-pip3 install Pillow numpy pygame RPi.GPIO
+#pip3 install Pillow numpy pygame RPi.GPIO
+pip install Pillow numpy
+pip install tensorflow
+pip install picamera2
 
 #Aktuelles Tensorflow laden (alt)
 #mkdir lib
@@ -31,22 +35,22 @@ pip3 install Pillow numpy pygame RPi.GPIO
 #
 #Mit Google Original Sourcen (neu)
 #lib von https://storage.googleapis.com/tensorflow/raspberrypi/tensorflow-2.3.0rc2-cp35-none-linux_armv6l.whl
-mkdir lib
-cd lib
+#mkdir lib
+#cd lib
 #geht nicht... get https://storage.googleapis.com/tensorflow/raspberrypi/tensorflow-2.3.0rc2-cp35-none-linux_armv6l.whl
 #file: https://drive.google.com/file/d/12ZvJmac9P3-_Ha4_Z6ktvI4YOnjIiSKG/view?usp=sharing
 #wget 'https://storage.googleapis.com/tensorflow/raspberrypi/tensorflow-2.3.0rc2-cp35-none-linux_armv7l.whl' -O tensorflow-2.3.0rc2-cp35-none-linux_armv7l.whl
 #wget https://drive.google.com/file/d/12ZvJmac9P3-_Ha4_Z6ktvI4YOnjIiSKG/view?usp=sharing
 
-curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=1o-H38Wpl38Hk3uByNukBWId8VieVwGt0" > /dev/null
-CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
-curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=1o-H38Wpl38Hk3uByNukBWId8VieVwGt0" -o tensorflow-2.3.1-cp37-none-linux_armv7l.whl
-echo Download finished.
+#curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=1o-H38Wpl38Hk3uByNukBWId8VieVwGt0" > /dev/null
+#CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+#curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=1o-H38Wpl38Hk3uByNukBWId8VieVwGt0" -o tensorflow-2.3.1-cp37-none-linux_armv7l.whl
+#echo Download finished.
 
-pip3 install --upgrade setuptools
-pip3 install tensorflow-2.3.1-cp37-none-linux_armv7l.whl
+#pip3 install --upgrade setuptools
+#sudo pip3 install tensorflow-2.3.1-cp37-none-linux_armv7l.whl
 
-cd ..
+#cd ..
 
 #Kamera aktivieren ab hier manuelle Interaktion notwendig
 #3 - interfaces -> Camera -> Activate 

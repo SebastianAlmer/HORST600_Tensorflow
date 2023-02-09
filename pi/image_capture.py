@@ -3,13 +3,13 @@ import numpy as np
 
 import io
 import time
-import picamera
+import picamera2
 
 class ImageCapture:
 
     def __init__(self):
         self.stream = io.BytesIO()
-        self.camera = picamera.PiCamera()
+        self.camera = picamera2.PiCamera2()
         self.camera.start_preview()
         
         # Disable scientific notation for clarity
